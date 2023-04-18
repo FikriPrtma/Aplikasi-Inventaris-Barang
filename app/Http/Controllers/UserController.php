@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function getUser(User $user)
     {
-//        dd('tadaiJAAAAAAAAAANG \:"v/');
         $dataUser = $user->get();
-       
-       return view('Test', compact('dataUser'));
+
+        return view('Test', compact('dataUser'));
+    }
+    public function tambahForm()
+    {
+        return view('admin.user.tambahForm');
     }
     public function saveUser()
     {
@@ -22,5 +25,5 @@ class UserController extends Controller
     }
     public function updateUser()
     {
-    }//
+    }
 }

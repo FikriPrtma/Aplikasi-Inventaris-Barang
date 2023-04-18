@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,15 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('UjiCoba');
+    return view('welcome');
 });
+
+Route::get('/dashboard-admin', function () {
+    return view('admin/dashboard_admin');
+});
+
 
 Route::controller(UserController::class)->name('user.')->group(function () {
     Route::get('/user', 'getUser')->name('getUser');
-
+    Route::get('/tambah', 'tambahForm')->name('tambahForm');
 });
