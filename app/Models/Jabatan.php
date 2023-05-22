@@ -13,8 +13,12 @@ class Jabatan extends Model
 
     protected $fillable = [
         'user_id',
-        'jam_masuk',
-        'jam_keluar',
-        'status',
+        'nama_jabatan',
+        'tunjangan',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
