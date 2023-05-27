@@ -29,7 +29,14 @@ Route::controller(JabatanController::class)->name('jabatan.')->group(function ()
     Route::delete('/hapus-jabatan/{jabatan}', 'deleteJabatan')->name('deleteJabatan');
 });
 
+//Index
+Route::get('/', function () {
+    return view('index');
+});
+
 
 // Sign Ruote :
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
+//Menyimpan data dari register
+Route::post('/register', [RegisterController::class, 'store']);
