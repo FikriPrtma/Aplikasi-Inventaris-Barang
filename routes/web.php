@@ -1,23 +1,10 @@
 <?php
 
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('admin/dashboard_admin');
-});
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/admin', function () {
     return view('admin/dashboard_admin');
@@ -41,3 +28,8 @@ Route::controller(JabatanController::class)->name('jabatan.')->group(function ()
     Route::patch('/update-jabatan/{jabatan}', 'updateJabatan')->name('updateJabatan');
     Route::delete('/hapus-jabatan/{jabatan}', 'deleteJabatan')->name('deleteJabatan');
 });
+
+
+// Sign Ruote :
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
