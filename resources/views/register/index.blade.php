@@ -17,16 +17,25 @@
 						<div class="form-group">
 							<div class="form-wrapper">
 								<label for="name">Name</label>
-								<input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Name">
+								<input type="text" name="name" class="form-control is-invalid" id="name" placeholder="Name" required value="{{ old('name') }}">
+								@error('name')
+									<span class="text-danger">{{ $message }}</span>
+								@enderror
 							</div>
 						</div>
 						<div class="form-wrapper">
 							<label for="">Email Address</label>
-							<input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+							<input type="email" name="email" class="form-control is-invalid" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
+							@error('email')
+									<span class="text-danger">{{ $message }}</span>
+							@enderror
 						</div>
 						<div class="form-wrapper">
 							<label for="">Password</label>
-							<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+							<input type="password" name="password" class="form-control is-invalid" id="password" placeholder="Password" required>
+							@error('password')
+									<span class="text-danger">{{ $message }}</span>
+							@enderror
 						</div>
 					<button>Register Now</button>
 					<div class="register-card-footer">

@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="login-card-container">
         <div class="login-card">
             <div class="login-card-logo">
@@ -21,6 +20,12 @@
                 <h1>Sign In</h1>
                 <div>Please login to use the platform</div>
             </div>
+            @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('message') }}
+            </div>    
+            @endif
+            
             <form class="login-card-form">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>

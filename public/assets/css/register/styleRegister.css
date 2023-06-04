@@ -149,40 +149,31 @@ button {
     -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66); }
 
-.checkbox {
-  position: relative; }
-  .checkbox label {
-    padding-left: 22px;
-    cursor: pointer; }
-  .checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer; }
-  .checkbox input:checked ~ .checkmark:after {
-    display: block; }
-
-.checkmark {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 12px;
-  width: 13px;
-  border-radius: 2px;
-  background-color: #ebebeb;
-  border: 1px solid #ccc;
-  font-family: Material-Design-Iconic-Font;
-  color: #000;
-  font-size: 10px;
-  font-weight: bolder; }
-  .checkmark:after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    content: '\f26b'; }
-
+    input:invalid {
+      background-color: #ffdddd;
+    }
+    
+    form:invalid {
+      border: 5px solid #ffdddd;
+    }
+    
+    input:valid {
+      background-color: #ddffdd;
+    }
+    
+    form:valid {
+      border: 5px solid #ddffdd;
+    }
+    
+    input:required {
+      border-color: #800000;
+      border-width: 3px;
+    }
+    
+    input:required:invalid {
+      border-color: #c00000;
+    }
+    
 @media (max-width: 991px) {
   .inner {
     min-width: 768px; } }
@@ -197,5 +188,3 @@ button {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px; } }
-
-/*# sourceMappingURL=style.css.map */
