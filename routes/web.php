@@ -5,12 +5,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/admin', function () {
     return view('admin/dashboard_admin');
 });
 
-
+//Admin Route
 Route::controller(UserController::class)->name('user.')->group(function () {
     Route::get('/user', 'getUser')->name('getUser');
     Route::get('/tambah-user', 'tambahForm')->name('tambahForm');
@@ -37,6 +38,9 @@ Route::get('/', function () {
 
 // Sign Ruote :
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index']);
 //Menyimpan data dari register
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);

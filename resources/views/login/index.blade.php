@@ -20,21 +20,36 @@
                 <h1>Sign In</h1>
                 <div>Please login to use the platform</div>
             </div>
+
+            {{-- Message Start --}}
             @if (session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('message') }}
             </div>    
             @endif
+
+            @if (session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('loginError') }}
+            </div>    
+            @endif
+            {{-- Message End --}}
             
-            <form class="login-card-form">
+            <form class="login-card-form" action="/login" method="POST">
+				@csrf 
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="text" placeholder="Enter Email" id="emailForm" 
-                    autofocus required>
+                    <input type="text" name= "email" class="form-control @error('email') is-invalid @enderror"placeholder="Enter Email" id="email" 
+                    autofocus required value="{{ old('email') }}">
+                    @error('email')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input type="password" placeholder="Enter Password" id="passwordForm"
+                    <input type="password" name="password" placeholder="Enter Password" id="password"
                      required>
                 </div>
                 <button type="submit">Sign In</button>
