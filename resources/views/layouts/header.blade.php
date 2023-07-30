@@ -44,7 +44,12 @@
     </script>
 </head>
 
-<body>
+<body style="
+    background-image: url('https://img.iproperty.com.my/angel/1110x624-crop/wp-content/uploads/sites/5/2023/04/1-Gudang.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url('/') }}">Inventaris Barang</a>
@@ -89,3 +94,6 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="container card shadow-m rounded my-5 bg-light">
+
